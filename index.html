@@ -426,12 +426,33 @@
     </div>
 
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, collection, addDoc, onSnapshot, writeBatch, query, where, getDocs, updateDoc, deleteDoc, increment, serverTimestamp, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-        
-        document.addEventListener('DOMContentLoaded', () => {
+<script type="module">
+  // Firebase SDK imports from the CDN
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import {
+    getAuth,
+    signInAnonymously,
+    onAuthStateChanged
+  } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-auth.js";
+  import {
+    getFirestore,
+    doc,
+    collection,
+    addDoc,
+    onSnapshot,
+    updateDoc,
+    writeBatch,
+    serverTimestamp,
+    deleteDoc,
+    query,
+    where,
+    orderBy,
+    getDocs,
+    increment,
+    setLogLevel
+  } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+
+  document.addEventListener('DOMContentLoaded', () => {
 
             // --- App & Firebase State ---
             let db, auth, userId, isAuthReady = false;
@@ -441,15 +462,13 @@
             let activeModal = { loan: null, kit: null, itemName: null, checklistData: null, kitsToAdd: null };
             
             // --- PASTE YOUR FIREBASE CONFIG HERE ---
-            const firebaseConfig = {
-             apiKey: "AIzaSyC5TJD1OHfDRaH8449-rTViuc1ihaPsUK0",
-             authDomain: "camera-equipment-hire-pma.firebaseapp.com",
-             projectId: "camera-equipment-hire-pma",
-             storageBucket: "camera-equipment-hire-pma.appspot.com",
-             messagingSenderId: "263891339773",
-             appId: "1:263891339773:web:1b69db44cd3f683fdd3194",
-             measurementId: "G-X766QG03D3"
-            };
+    const firebaseConfig = {
+  apiKey: "AIzaSyBz9a6h0kTigc_mwKQEtbISuk9SdrWfDoQ",
+  authDomain: "media-manager-pma.firebaseapp.com",
+  projectId: "media-manager-pma",
+  messagingSenderId: "415369811012",
+  appId: "1:415369811012:web:0f1acfd57b68ceadbc9811"
+};
             // --- END OF FIREBASE CONFIG ---
 
 
@@ -542,7 +561,7 @@
                 }
                 
                 try {
-                    const app = initializeApp(firebaseConfig);
+                     const app = initializeApp(firebaseConfig);
                     db = getFirestore(app);
                     auth = getAuth(app);
                     setLogLevel('debug');
